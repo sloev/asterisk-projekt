@@ -1,0 +1,35 @@
+#!/bin/bash
+iptables -A INPUT -i lo -j ACCEPT
+iptables -F FORWARD
+iptables -F INPUT
+iptables -A FORWARD -p tcp --dport http -i eth0
+iptables -A FORWARD -p tcp --sport http -i eth1
+
+iptables -A FORWARD -p TCP --sport sip -i eth0
+iptables -A FORWARD -p UDP --sport sip -i eth0
+
+
+iptables -A FORWARD -j DROP
+#hack proof iptables -A INPUT -p tcp -m tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG FIN,SYN,RST,PSH,ACK,URG -j DROP
+iptables -A INPUT -i eth0 -m conntrack \--ctstate ESTABLISHED,RELATED -j ACCEPT
+iptables -A INPUT -i eth0 -p tcp --dport ssh -j ACCEPT
+
+
+#nat stuff
+iptables -F -t nat
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+#asterisk stuff
+iptables -A INPUT -i eth0 -p UDP --dport sip -j ACCEPT
+iptables -A INPUT -i eth0 -p TCP --dport sip -j ACCEPT
+iptables -A INPUT -i eth0 -p UDP --dport 10000:20000 -j ACCEPT
+
+
+iptables -A INPUT -j DROP
+
+
+
+
+
+
+
