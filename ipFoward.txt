@@ -28,6 +28,7 @@ iptables -A INPUT -i eth0 -p UDP --dport 10000:20000 -j ACCEPT
 
 iptables -A INPUT -j DROP
 
+iptables -vL
 
 
 
