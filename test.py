@@ -1,8 +1,3 @@
-'''
-Created on Apr 9, 2014
-
-@author: johannes
-'''
 #!/usr/bin/env python
 
 
