@@ -4,6 +4,7 @@ from crontab import CronTab
 
 
 if __name__ == '__main__':
+	print "lolcat"
     agi = pystrix.agi.AGI()
 
     agi.execute(pystrix.agi.core.Answer()) #Answer the call
