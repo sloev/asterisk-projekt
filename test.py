@@ -10,9 +10,9 @@ if __name__ == '__main__':
     agi = pystrix.agi.AGI()
     agi.execute(pystrix.agi.core.Answer()) #Answer the call
     myDate={}
-    myDateIndices={0:"month",1:"day",2:"hour",3:"minute"}
+    myDateIndices={0:'month',1:'day',2:'hour',3:'minute'}
     boundaries={0:[1,12],1:[1,31],2:[0,23],3:[0,59]}
-    success=False
+    success=True
     print "vars created"
     for i in range(0,3):
 	    print ()"for loop iter:"+str(i))
@@ -25,7 +25,7 @@ if __name__ == '__main__':
             success=False
             break        
         pass 
-    
+    print "leaved for loop"
     print myDate
     if success:
         mydateString=str(myDate["month"])+str(myDate["day"])+str(myDate["hour"])+str(myDate["minute"])
