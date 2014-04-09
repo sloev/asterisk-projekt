@@ -18,9 +18,9 @@ if __name__ == '__main__':
         #print ()"for loop iter:"+str(i))
         response = agi.execute(pystrix.agi.core.StreamFile('./custom/'+myDateIndices[i]))
         myDate[myDateIndices[i]] = 10 * int(agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000)))
-        agi.execute(pystrix.agi.core.SayNumber(myDate[myDateIndices[i]]))
+        #agi.execute(pystrix.agi.core.SayNumber(myDate[myDateIndices[i]]))
 
-        myDate[myDateIndices[i]] = myDate[myDateIndices[i]] + int(agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000)))
+        myDate[myDateIndices[i]] = int(myDate[myDateIndices[i]] + int(agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000))))
         bound=boundaries[i]
         agi.execute(pystrix.agi.core.SayNumber(myDate[myDateIndices[i]]))
         if not (bound[0]<=myDate[myDateIndices[i]] <=bound[1]):
