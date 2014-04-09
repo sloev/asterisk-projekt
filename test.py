@@ -33,7 +33,7 @@ if __name__ == '__main__':
     if success:
         mydateString=str(myDate["month"])+str(myDate["day"])+str(myDate["hour"])+str(myDate["minute"])
         response = agi.execute(pystrix.agi.core.StreamFile('./custom/recordMessage'))
-        response = agi.execute(pystrix.agi.core.RecordFile('/messages/'+mydateString+".wav", format='wav', escape_digits='0', timeout=15000))
+        response = agi.execute(pystrix.agi.core.RecordFile('.messages/'+mydateString+".wav", format='wav', escape_digits='0', timeout=15000))
         response = agi.execute(pystrix.agi.core.StreamFile('./custom/thankYou'))
         
         #cron stuff
