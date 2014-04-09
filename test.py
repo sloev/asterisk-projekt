@@ -20,7 +20,8 @@ if __name__ == '__main__':
         myDate[myDateIndices[i]] = 10 * agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000))
         myDate[myDateIndices[i]] = myDate[myDateIndices[i]] + agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000))
         bound=boundaries[i]
-        if not bound[0]<=myDate[myDateIndices[i]] <=bound[1]:
+        agi.execute(pystrix.agi.core.SayNumber(myDate[myDateIndices[i]]))
+        if not (bound[0]<=myDate[myDateIndices[i]] <=bound[1]):
             response = agi.execute(pystrix.agi.core.StreamFile('./custom/numberError'))
             success=False
             break
