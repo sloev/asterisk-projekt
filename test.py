@@ -13,7 +13,9 @@ if __name__ == '__main__':
     myDateIndices={0:"month",1:"day",2:"hour",3:"minute"}
     boundaries={0:[1,12],1:[1,31],2:[0,23],3:[0,59]}
     success=False
+    print "vars created"
     for i in range(0,3):
+	    print ()"for loop iter:"+str(i))
         response = agi.execute(pystrix.agi.core.StreamFile('./custom/'+myDateIndices[i])) 
         myDate[myDateIndices[i]] = 10 * agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000))
         myDate[myDateIndices[i]] = myDate[myDateIndices[i]] + agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000))
@@ -23,7 +25,7 @@ if __name__ == '__main__':
             success=False
             break        
         pass 
-        
+    
     print myDate
     if success:
         mydateString=str(myDate["month"])+str(myDate["day"])+str(myDate["hour"])+str(myDate["minute"])
@@ -37,5 +39,5 @@ if __name__ == '__main__':
         #job.day.on(myDate["day"])
         #job.hour.on(myDate["hour"])
         #job.minute.on(myDate["minute"])
-        
+    print "hanging up"
     agi.execute(pystrix.agi.core.Hangup())
