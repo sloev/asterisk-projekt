@@ -17,7 +17,9 @@ if __name__ == '__main__':
     for i in range(0,3):
         #print ()"for loop iter:"+str(i))
         response = agi.execute(pystrix.agi.core.StreamFile('./custom/'+myDateIndices[i]))
-        myDate[myDateIndices[i]] = 10 * agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000))
+        myDate[myDateIndices[i]] = 10 * (agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000)))
+        agi.execute(pystrix.agi.core.SayNumber(myDate[myDateIndices[i]]))
+
         myDate[myDateIndices[i]] = myDate[myDateIndices[i]] + agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000))
         bound=boundaries[i]
         agi.execute(pystrix.agi.core.SayNumber(myDate[myDateIndices[i]]))
