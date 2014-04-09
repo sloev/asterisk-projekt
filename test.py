@@ -21,7 +21,8 @@ if __name__ == '__main__':
 	    #if not bound[0]<=myDate[myDateIndices[i]] <=bound[1]:
 		#    response = agi.execute(pystrix.agi.core.StreamFile('./custom/numberError')) 
 		#    success=False
-		#    break		 
+		#    break		
+		pass 
 		
 	print myDate
 	if success:
