@@ -7,6 +7,7 @@ if __name__ == '__main__':
     agi = pystrix.agi.AGI()
 
     agi.execute(pystrix.agi.core.Answer()) #Answer the call
+    agi.execute(pystrix.agi.core.Wait(100)) #Answer the call
     myDate={}
     myDateIndices={0:"month",1:"day",2:"hour",3:"minute"}
     boundaries={0:[1,12],1:[1,31],2:[0,23],3:[0,59]}
