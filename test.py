@@ -14,7 +14,7 @@ if __name__ == '__main__':
     boundaries={0:[1,12],1:[1,31],2:[0,23],3:[0,59]}
     success=True
     #print "vars created"
-    for i in range(0,3):
+    for i in range(0,4):
         #print ()"for loop iter:"+str(i))
         response = agi.execute(pystrix.agi.core.StreamFile('./custom/'+myDateIndices[i]))
         myDate[myDateIndices[i]] = 10 * int(agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000)))
