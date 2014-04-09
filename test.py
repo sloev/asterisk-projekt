@@ -15,23 +15,23 @@ if __name__ == '__main__':
     success=True
     print "vars created"
     for i in range(0,3):
-	    print ()"for loop iter:"+str(i))
-        response = agi.execute(pystrix.agi.core.StreamFile('./custom/'+myDateIndices[i])) 
+        print ()"for loop iter:"+str(i))
+        response = agi.execute(pystrix.agi.core.StreamFile('./custom/'+myDateIndices[i]))
         myDate[myDateIndices[i]] = 10 * agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000))
         myDate[myDateIndices[i]] = myDate[myDateIndices[i]] + agi.execute(pystrix.agi.core.WaitForDigit(timeout=5000))
         bound=boundaries[i]
         if not bound[0]<=myDate[myDateIndices[i]] <=bound[1]:
-            response = agi.execute(pystrix.agi.core.StreamFile('./custom/numberError')) 
+            response = agi.execute(pystrix.agi.core.StreamFile('./custom/numberError'))
             success=False
-            break        
-        pass 
+            break
+        pass
     print "leaved for loop"
     print myDate
     if success:
         mydateString=str(myDate["month"])+str(myDate["day"])+str(myDate["hour"])+str(myDate["minute"])
         response = agi.execute(pystrix.agi.core.StreamFile('./custom/recordMessage'))
         response = agi.execute(pystrix.agi.core.RecordFile('./messages/'+mydateString+".wav", format='wav', escape_digits='0', timeout=15000))
-        response = agi.execute(pystrix.agi.core.StreamFile('./custom/thankYou')) 
+        response = agi.execute(pystrix.agi.core.StreamFile('./custom/thankYou'))
         
         #cron stuff
         #job  = cron.new(command='/usr/bin/echo')
